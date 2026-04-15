@@ -1,22 +1,24 @@
 <template>
-  <div>
-    <h1>Dog Center</h1>
-    <div id="dog-gallery">
-      <DogCard
-        v-for="dog in dogsData"
-        :key="dog.id"
-        :name="dog.name"
-        :age="dog.age"
-        :breed="dog.breed"
-        :pictureUrl="dog.pictureUrl"
-        :soundUrl="dog.soundUrl"
-      />
-    </div>
-  </div>
+  <header>
+    <h1>🎵 Met Instruments Explorer</h1>
+    <nav>
+      <RouterLink to="/">Galerie (Accueil)</RouterLink> | 
+      <RouterLink to="/chrono-game">Jeu : Chronologie</RouterLink> | 
+      <RouterLink to="/guess-game">Jeu : Devine l'origine</RouterLink>
+    </nav>
+  </header>
+
+  <main>
+    <RouterView /> 
+  </main>
 </template>
 
 <script setup>
-import dogsData from './dogsData'     
-import DogCard from './components/DogCard.vue'
-import DogCard from './components/NewsSlider.vue'
+import { RouterLink, RouterView } from 'vue-router'
 </script>
+
+<style>
+nav { margin-bottom: 20px; font-size: 1.2rem; }
+nav a { text-decoration: none; color: #2c3e50; font-weight: bold; }
+nav a.router-link-exact-active { color: #42b983; }
+</style>
